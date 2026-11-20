@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
-import { LayoutGrid, CheckCircle2, XCircle, Clock, Megaphone, ExternalLink, Pin } from 'lucide-react';
+import { LayoutGrid, CheckCircle2, XCircle, Clock, KeyRound, ExternalLink } from 'lucide-react';
 import { api, timeAgo } from '../api.js';
 import { useAuth } from '../auth.jsx';
 import PortalCard from '../components/PortalCard.jsx';
@@ -57,17 +57,15 @@ export default function Dashboard() {
       </section>
 
       <section className="block">
-        <div className="block-head"><h2><Megaphone size={18} /> Announcements</h2><Link to="/announcements" className="link">All</Link></div>
-        {d.announcements.length === 0 ? <div className="empty-soft">No announcements yet.</div> : (
-          <div className="ann-list">
-            {d.announcements.map((a) => (
-              <div className="ann" key={a.id}>
-                {a.pinned && <span className="ann-pin"><Pin size={13} /></span>}
-                <div className="ann-main"><div className="ann-title">{a.title}</div>{a.body && <div className="ann-body">{a.body}</div>}<div className="ann-meta">{a.author || 'Management'} · {timeAgo(a.createdAt)}</div></div>
-              </div>
-            ))}
-          </div>
-        )}
+        <div className="block-head"><h2><KeyRound size={18} /> Credentials</h2><Link to="/credentials" className="link">Manage</Link></div>
+        <Link to="/credentials" className="cred-dash">
+          <span className="cd-ic"><KeyRound size={20} /></span>
+          <span className="cd-main">
+            <span className="cd-val">{d.credentialCount ?? 0} application{(d.credentialCount ?? 0) === 1 ? '' : 's'}</span>
+            <span className="cd-sub">Login credentials for all company portals, stored securely in one place.</span>
+          </span>
+          <ExternalLink size={16} />
+        </Link>
       </section>
     </div>
   );

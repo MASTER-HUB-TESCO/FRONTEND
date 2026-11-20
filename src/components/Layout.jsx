@@ -1,13 +1,13 @@
 import { NavLink, useLocation } from 'react-router-dom';
 import { useEffect, useRef, useState } from 'react';
-import { LayoutDashboard, LayoutGrid, Megaphone, Settings, Bell, LogOut, Building2, X } from 'lucide-react';
+import { LayoutDashboard, LayoutGrid, KeyRound, Settings, Bell, LogOut, Building2, X } from 'lucide-react';
 import { useAuth } from '../auth.jsx';
 import { api, timeAgo } from '../api.js';
 
 const LINKS = [
   { to: '/', icon: LayoutDashboard, label: 'Dashboard', end: true },
   { to: '/portals', icon: LayoutGrid, label: 'Portals' },
-  { to: '/announcements', icon: Megaphone, label: 'Announcements' },
+  { to: '/credentials', icon: KeyRound, label: 'Credentials' },
   { to: '/settings', icon: Settings, label: 'Settings' },
 ];
 
