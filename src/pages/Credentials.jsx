@@ -105,19 +105,20 @@ export default function Credentials() {
     const shown = revealed[key] !== undefined;
     return (
       <div className="cred-login">
-        {l.label && <span className="login-chip">{l.label}</span>}
-        <span className="cred-copy">
-          <span className="cred-val">{l.username || '—'}</span>
+        <span className="login-col-label">{l.label ? <span className="login-chip">{l.label}</span> : null}</span>
+        <span className="login-col-user cred-copy">
+          <span className="cred-val" title={l.username || ''}>{l.username || '—'}</span>
           {l.username && <button className="icon-btn xs" title="Copy username" onClick={() => copy(l.username, `u:${kp}`)}>{copied === `u:${kp}` ? <Check size={14} /> : <Copy size={14} />}</button>}
         </span>
-        <span className="cred-dot">·</span>
-        {l.hasPassword ? (
-          <span className="cred-copy">
-            <span className="cred-val mono">{shown ? (revealed[key] || '—') : '••••••••'}</span>
-            <button className="icon-btn xs" title={shown ? 'Hide' : 'Show'} onClick={() => toggleReveal(c.id, l.lid)}>{shown ? <EyeOff size={14} /> : <Eye size={14} />}</button>
-            <button className="icon-btn xs" title="Copy password" onClick={() => copyPassword(c.id, l.lid, `p:${kp}`)}>{copied === `p:${kp}` ? <Check size={14} /> : <Copy size={14} />}</button>
-          </span>
-        ) : <span className="muted">no password</span>}
+        <span className="login-col-pass cred-copy">
+          {l.hasPassword ? (
+            <>
+              <span className="cred-val mono">{shown ? (revealed[key] || '—') : '••••••••'}</span>
+              <button className="icon-btn xs" title={shown ? 'Hide' : 'Show'} onClick={() => toggleReveal(c.id, l.lid)}>{shown ? <EyeOff size={14} /> : <Eye size={14} />}</button>
+              <button className="icon-btn xs" title="Copy password" onClick={() => copyPassword(c.id, l.lid, `p:${kp}`)}>{copied === `p:${kp}` ? <Check size={14} /> : <Copy size={14} />}</button>
+            </>
+          ) : <span className="muted">no password</span>}
+        </span>
       </div>
     );
   };
