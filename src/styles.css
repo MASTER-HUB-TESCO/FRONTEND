@@ -345,3 +345,17 @@ a{color:inherit;text-decoration:none}
 .cred-dash .cd-sub{font-size:13px;color:var(--muted)}
 .cred-dash svg:last-child{color:var(--muted);flex:none}
 @media (max-width:560px){.cv-row{grid-template-columns:1fr;gap:4px}.grid-2{grid-template-columns:1fr}}
+
+/* ── Credentials: multiple logins per application ── */
+.cred-logins{display:flex;flex-direction:column;gap:8px}
+.cred-login{display:flex;align-items:center;gap:8px;flex-wrap:wrap}
+.cred-login .login-chip{display:inline-flex;align-items:center;padding:2px 8px;border-radius:999px;font-size:11px;font-weight:700;background:var(--navy,#0b1b34);color:#fff;white-space:nowrap}
+.cred-login .cred-dot{color:var(--muted);opacity:.6}
+.cred-login .cred-val{word-break:break-all}
+.logins-head{display:flex;align-items:center;justify-content:space-between;margin:6px 0 8px;font-size:12px;font-weight:700;color:var(--muted);text-transform:uppercase;letter-spacing:.03em}
+.login-card{border:1px solid var(--line);border-radius:12px;padding:12px 14px;margin-bottom:12px;background:var(--bg,#f7f9fc)}
+.login-card-head{display:flex;align-items:center;justify-content:space-between;margin-bottom:8px}
+.login-card-head .login-no{font-size:12px;font-weight:700;color:var(--muted);text-transform:uppercase;letter-spacing:.03em}
+.login-card .field:last-child{margin-bottom:0}
+.cred-modal{width:560px}
+.icon-btn.xs.danger:hover{color:var(--red)}
